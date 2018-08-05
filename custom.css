@@ -1,0 +1,101 @@
+.row {
+    display: flex; /* equal height of children */
+}
+
+.modify_row {
+    background-color: #a8ffb9;
+}
+
+.row_form {
+    padding: 20px;
+}
+
+.column {
+    padding: 5px;
+    flex: 1;
+    background-color: #f9f9f9;
+}
+
+.bgAdjust {
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 20px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+}
+
+input[type=text] , input[type=password] {
+    height: 50px;
+    width: 60%;
+    font-size: 19px;
+    padding: 5px;
+}
+
+input[type=radio] {
+    width: 20px;
+    height: 20px;
+}
+
+input[type=date] {
+    height: 50px;
+    width: 300px;
+}
+
+.row .column button {
+    font-size: 19px;
+    height: 50px;
+    width: 300px;
+}
+
+.buttonAdjust {
+    text-align: center;
+    padding: 0px;
+}
+
+.incorrect {
+    color: red;
+    font-size: 20px;
+}
+
+table {
+    background-color: #f9f9f9;
+    width: 95%;
+    font-size: 22px;
+}
+
+table , tr , th , td {
+    border-style: solid;
+    border-color: #cccccc;
+    border-width: 2px;
+    text-align: center;
+    font-weight: bold;
+}
+
+td input {
+    padding: 0px;
+}
+
+#prompt {
+    text-align: center;
+    background-color: #dddbdb;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#addRemind_form {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+}
+
+#input_subject , #input_remark {
+    height: 100px;
+    width: 95%;
+    font-size: 21px;
+}
+
+.modify_input {
+    width: 60px;
+    height: 20px;
+}
