@@ -107,23 +107,42 @@
 
                     <div class="modal-body">
                         <div id="add_status" style="text-align: center;"></div>
-                        <form id="addRemind_form">
-                                <h5>提醒事項主題: </h5>
-                                <textarea placeholder="主題(不可為空)" id="input_subject"></textarea><br>
-                            <div id="check_input_subject"></div><br>
-                                <h5>提醒事項備註: </h5>
-                                <textarea placeholder="備註(可為空)" id="input_remark"></textarea><br>
-                            <div class="row row_form" style="font-size: 20px;">
-                                <div class="column" style="background-color: #ffffff;">
-                                    <h5 style="margin-top: 10px; margin-bottom: 10px;">email寄信通知: </h5><input type="radio" value="yes" name="checkEmail">寄送 <input type="radio" value="no" checked name="checkEmail">不寄送<br>
+                        <form>
+                            <div class="container" style="text-align: center;">
+                                <div class="row"> <!-- row subject -->
+                                    <div class="col">
+                                        <h5>提醒事項主題: </h5>
+                                        <textarea placeholder="主題(不可為空)" id="input_subject"></textarea><br>
+                                        <div id="check_input_subject"></div><br>
+                                    </div>
                                 </div>
-                                <div class="column" style="background-color: #ffffff;">
-                                    <h5 style="margin-top: 10px; margin-bottom: 10px;">email寄信通知時間: </h5><input id="current_date_time" type="datetime-local" disabled>
+
+                                <div class="row"> <!-- row remark -->
+                                    <div class="col">
+                                        <h5>提醒事項備註: </h5>
+                                        <textarea placeholder="備註(可為空)" id="input_remark"></textarea><br>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row row_form" style="font-size: 20px; background-color: #ffffff;">
-                                <div class="column" style="background-color: #ffffff;">
-                                    <h5 style="margin-top: 10px; margin-bottom: 10px;">預設寄送email為: </h5>{showEmail}
+
+                                <div class="row"> <!-- row send email -->
+                                    <div class="col" style="background-color: white;">
+                                        <div style="margin-top: 10px; margin-bottom: 10px;">
+                                            <h5>email寄信通知: </h5>
+                                            <input type="radio" value="yes" name="checkEmail">寄送 <input type="radio" value="no" checked name="checkEmail">不寄送<br>
+                                        </div>
+                                    </div>
+                                    <div class="col" style="background-color: white;">
+                                        <div style="margin-top: 10px; margin-bottom: 10px;">
+                                            <h5>email寄信通知時間: </h5>
+                                            <input id="current_date_time" type="datetime-local" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row"> <!-- row default email -->
+                                    <div class="col" style="background-color: white;">
+                                        <h5 style="margin-top: 10px; margin-bottom: 10px;">預設寄送email為: </h5>{showEmail}
+                                    <div class="col">
                                 </div>
                             </div>
                         </form>

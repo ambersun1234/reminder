@@ -2,6 +2,15 @@
     display: flex; /* equal height of children */
 }
 
+.container .row {
+    padding: 5px;
+}
+
+.row .col {
+    padding: 0px;
+    margin: 5px;
+}
+
 .modify_row {
     background-color: #a8ffb9;
 }
@@ -90,8 +99,8 @@ td input {
 }
 
 #input_subject , #input_remark {
-    height: 100px;
-    width: 95%;
+    height: 150px;
+    width: 100%;
     font-size: 21px;
 }
 
