@@ -142,7 +142,7 @@
                                 <div class="row"> <!-- row default email -->
                                     <div class="col" style="background-color: white;">
                                         <h5 style="margin-top: 10px; margin-bottom: 10px;">預設寄送email為: </h5>{showEmail}
-                                    <div class="col">
+                                    </div>
                                 </div>
                             </div>
                         </form>

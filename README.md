@@ -49,12 +49,12 @@
 
 + #### Photo<hr>
     + index
-        + ![](https://i.imgur.com/4T6hLZa.png)
+        + ![](https://i.imgur.com/cuvdYJA.jpg)
     + view not finished remind item
-        + ![](https://i.imgur.com/7NiYVk3.png)
+        + ![](https://i.imgur.com/97aKto1.jpg)
     + modify remind item
-        + ![](https://i.imgur.com/hxY04iH.png)
+        + ![](https://i.imgur.com/tBTjzwq.jpg)
     + delete remind item
-        + ![](https://i.imgur.com/NKShjjM.png)
+        + ![](https://i.imgur.com/pssq7UD.jpg)
     + create remind item
-        + ![](https://i.imgur.com/AXFcXbV.png)
+        + ![](https://i.imgur.com/jPfzvc8.jpg)
