@@ -1,20 +1,20 @@
 # Reminder
 
-+ ### Build for everyone!!<hr>
++ ### Build For Everyone!!<hr>
     + This is Reminder , a website that allow user to create personal remind item .
     + Basically , user can view , modify and delete your own remind item . We also provide "send notify email" to your personal mailbox , you can choose to notify or not on web page. Sign up or Sign in to check more !!
 
-+ ### Getting started<hr>
++ ### Getting Started<hr>
     + #### Requirements
         + windows 10 version 1803
         + xampp v3.2.2
 
-    + #### Clone repo
+    + #### Clone Repo
         ```shell=1
         git clone https://github.com/ambersun1234/reminder.git C:\xampp\htdocs\www
         ```
 
-    + #### Configure xampp
+    + #### Configure Xampp
         1. launch xampp control panel
         2. press Apache's config , and choose **Apache (httpd.conf)**
         3. find
@@ -29,7 +29,7 @@
         ```
         5. start apache & mysql
 
-	+ #### Configure mysql
+	+ #### Configure Mysql
         + create the database that reminder needed
         ```=1
         CREATE DATABASE IF NOT EXISTS `reminders`;
@@ -59,7 +59,7 @@
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='提醒事項資料表';
         ```
 
-    + #### Configure send email
+    + #### Configure Send Email
         + sendEmail.php
             + $mail->Username = "YOUR_EMAIL"
             + $mail->Password = "YOUR_EMAIL'S_PASSWORD"

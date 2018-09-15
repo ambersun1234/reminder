@@ -48,11 +48,43 @@
             </tr>
 
             <!-- END BLOCK : reminds -->
+
+            <!-- delete remind Modal -->
+            <div class="modal fade" id="delete_remind_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">刪除提醒事項</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div id="delete_fake_id"></div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-danger" id="delete_submit">確定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end delete remind Modal -->
         </table>
     </body>
 </html>
 
 <script type="text/javascript">
+    function decreaseFakeId( id ) {
+        $( "#row_" + id ).nextAll().find( "td:first-child" ).each( function() {
+            var temp = parseInt( $( this ).text() );
+            temp--;
+            $( this ).text( temp );
+        });
+    }
+
     $( "#signOut" ).on( "click" , function() {
         $.post( "./signout.php" , function( data ) {
             // returnData : 0 -- success
@@ -68,27 +100,29 @@
         var id = $( this ).val();
         var fake_id = $( this ).parent( "td" ).siblings( "td:first-child" ).text();
 
-        var choice = confirm( "你確定要刪除 \"" + fake_id + "號提醒事項\" ??" );
+        $( "#delete_remind_modal #delete_fake_id" ).html( "你確定要刪除 <span style='color: red;'>" + fake_id + "號提醒事項</span> 嗎??" ); // write fake id
+        $( "#delete_remind_modal" ).modal( "show" );
 
-        if ( choice ) {
+        $( "#delete_submit" ).on( "click" , function() {
             $.post( "./deleteRemind.php" , { deleteId : id } , function( data ) {
-                // returnData : 0 -- success , 1 -- query error
+                // returnData : 0 -- success , 1 -- error
                 if ( data.code == 0 ) {
                     // decrease fake id
-                    $( "#row_" + id ).nextAll().find( "td:first-child" ).each( function() {
-                        var temp = parseInt( $( this ).text() );
-                        temp--;
-                        $( this ).text( temp );
-                    });
+                    decreaseFakeId( id );
 
                     $( "#row_" + id ).remove();
+
+                    $( "#status" ).text( "" ).removeClass( "incorrect" );
                 }
                 else {
                     $( "#status" ).text( data.message ).addClass( "incorrect" );
                 }
+
+                $( "#delete_remind_modal" ).modal( "hide" ); // hide popup modal
             } , "json" ).fail( function() {
                 $( "#status" ).text( "出現錯誤!! 請重試" ).addClass( "incorrect" );
+                $( "#delete_remind_modal" ).modal( "hide" ); // hide popup modal
             });
-        }
+        });
     });
 </script>

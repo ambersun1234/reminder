@@ -419,8 +419,26 @@
         return okay;
     }
 
+    function escapeHtml( text ) {
+        var map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+
+        return text.toString().replace( /[&<>"']/g , function( m ) {
+            return map[ m ];
+        });
+    }
+
     function parse( str ) {
         var args = [].slice.call( arguments , 1 ) , i = 0;
+
+        for ( var key in args ) {
+            args[ key ] = escapeHtml( args[ key ] );
+        }
 
         return str.replace( /%s/g , function() {
             return args[ i++ ];
@@ -482,7 +500,7 @@
                     if ( data.code == 0 ) {
                         // get insert primary id
                         var id = data.id;
-                        var fake_id = parseInt( $( "table tr:last td:first" ).text() ) + 1;
+                        var fake_id = parseInt( $( "table tr:last td:first" ).text() == "" ? 0 : $( "table tr:last td:first" ).text() ) + 1;
 
                         // clear data
                         $( "#input_subject , #input_remark" ).val( "" );
