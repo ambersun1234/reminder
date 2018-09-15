@@ -29,6 +29,36 @@
         ```
         5. start apache & mysql
 
+	+ #### Configure mysql
+        + create the database that reminder needed
+        ```=1
+        CREATE DATABASE IF NOT EXISTS `reminders`;
+
+        CREATE TABLE IF NOT EXISTS `remind_user` (
+          `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+          `name` char(100) NOT NULL COMMENT '使用者名稱',
+          `password` char(128) NOT NULL COMMENT '使用者密碼',
+          `email` varchar(100) NOT NULL COMMENT '使用者帳號',
+          `is_delete` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否刪除',
+          `modify_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '建置時間',
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='使用者資料表';
+
+        CREATE TABLE IF NOT EXISTS `remind_item` (
+          `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+          `user_guid` bigint(20) unsigned NOT NULL COMMENT 'remind_user.id',
+          `item_subject` varchar(100) NOT NULL COMMENT '提醒事項主題',
+          `item_remark` varchar(300) NOT NULL COMMENT '提醒事項備註',
+          `item_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '提醒事項狀態0未完成1已完成',
+          `notify` tinyint(1) NOT NULL DEFAULT '0' COMMENT '寄信通知0不寄送1寄送',
+          `notify_datetime` datetime DEFAULT NULL COMMENT '寄信通知時間',
+          `is_delete` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否刪除',
+          `create_time` datetime NOT NULL COMMENT '建立時間',
+          `modify_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新時間',
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='提醒事項資料表';
+        ```
+
     + #### Configure send email
         + sendEmail.php
             + $mail->Username = "YOUR_EMAIL"
